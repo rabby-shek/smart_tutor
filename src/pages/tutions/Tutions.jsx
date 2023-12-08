@@ -1,10 +1,12 @@
 import React from 'react'
+import FilterCard from '../../components/tutions/FilterCard'
 
 const Tutions = () => {
   return (
-    <div>
-      Tutions
-    </div>
+    <>
+    <FilterCard />
+      
+    </>
   )
 }
 

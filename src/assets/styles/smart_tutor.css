@@ -1,103 +1,111 @@
 @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Montserrat&family=Source+Code+Pro:wght@200;300&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* header styles start here */
 .header {
-    position: relative;
-    background-color: rgb(99, 95, 95);
-    color: #fff;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-family: 'Montserrat';
-    height: 50px
+  position: fixed;
+  width: 100%;
+  background-color: #1ce4b2;
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Montserrat';
+  height: 50px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  z-index: 1000;
 }
 
 .header .logo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
-    color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
 }
 
 .header .logo img {
-    width: 60px;
-    height: 40px;
+  width: 60px;
+  height: 40px;
 }
-.header .menu-toggle{
-    display: none;
+
+.header .menu-toggle {
+  display: none;
 }
+
 .header .nav-links ul {
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+.header .nav-links ul li {
+  padding: 0px 10px;
+}
+
+.header .nav-links ul li a {
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+}
+
+.header .nav-links ul li a:hover::before,
+.header .nav-links ul li a.active::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to right, transparent, #fff, transparent);
+}
+
+/* Optional: Adjust the animation for the hover effect */
+.header .nav-links ul li a:hover::before {
+  animation: underline 0.3s ease-in-out;
+}
+
+@keyframes underline {
+  from {
+    transform: scaleX(0);
   }
-  
-  .header .nav-links ul li {
-    padding: 0px 10px;
+
+  to {
+    transform: scaleX(1);
   }
-  
-  .header .nav-links ul li a {
-    text-decoration: none;
-    color: #fff;
-    position: relative;
-  }
-  
-  .header .nav-links ul li a:hover::before,
-  .header .nav-links ul li a.active::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(to right, transparent, #fff, transparent);
-  }
-  
-  /* Optional: Adjust the animation for the hover effect */
-  .header .nav-links ul li a:hover::before {
-    animation: underline 0.3s ease-in-out;
-  }
-  
-  @keyframes underline {
-    from {
-      transform: scaleX(0);
-    }
-    to {
-      transform: scaleX(1);
-    }
-  }
-  
+}
+
 .header .button-container button {
-    padding: 10px 15px;
-    font-size: 14px;
-    background-color: #fff;
-    color: #000;
-    border: hidden;
-    border-radius: 10px;
-    margin: 0px 10px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
+  padding: 10px 15px;
+  font-size: 14px;
+  background-color: #fff;
+  color: #000;
+  border: hidden;
+  border-radius: 10px;
+  margin: 0px 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .header .button-container button:hover::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, transparent, #fff, transparent);
-    animation: shining 1.5s infinite;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, #fff, transparent);
+  animation: shining 1.5s infinite;
 }
+
 .offcanvas {
   position: fixed;
   top: 0;
@@ -111,8 +119,10 @@
 }
 
 .offcanvas.active {
-  transform: translateX(0); /* Move the offcanvas to the visible position */
+  transform: translateX(0);
+  /* Move the offcanvas to the visible position */
 }
+
 .offcanvas .logo {
   margin: 20px 20px;
   display: flex;
@@ -121,36 +131,40 @@
   cursor: pointer;
   text-decoration: none;
   color: #fff;
- 
+
 }
-.offcanvas .offcanvas-nav-links{
+
+.offcanvas .offcanvas-nav-links {
   margin: 20px 20px;
 }
-.offcanvas .offcanvas-nav-links ul li{
+
+.offcanvas .offcanvas-nav-links ul li {
   list-style-type: none;
   margin: 10px 0px;
 }
-.offcanvas .offcanvas-nav-links ul li a{
-   color: white;
-   text-decoration: none;
+
+.offcanvas .offcanvas-nav-links ul li a {
+  color: white;
+  text-decoration: none;
 }
-.offcanvas-button-container button{
+
+.offcanvas-button-container button {
   color: #fff;
 
 }
 
 @keyframes shining {
-    0% {
-        left: -100%;
-    }
+  0% {
+    left: -100%;
+  }
 
-    50% {
-        left: 200%;
-    }
+  50% {
+    left: 200%;
+  }
 
-    100% {
-        left: -100%;
-    }
+  100% {
+    left: -100%;
+  }
 }
 
 /* header styles ends here */
@@ -162,24 +176,28 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 70px;
+  background-color: black;
 }
 
 .hero-section-left h1 {
   font-size: 24px;
   color: green;
 }
-.hero-section-left p{
+
+.hero-section-left p {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 20px;
   color: #afa2a2;
 }
-.hero-section-left span{
+
+.hero-section-left span {
   color: rgb(35, 128, 128);
 }
-.hero-section-left button{
+
+.hero-section-left button {
   padding: 10px 15px;
   font-size: 17px;
   border: hidden;
@@ -187,19 +205,84 @@
   cursor: pointer;
   border-radius: 8px;
 }
-.hero-section-left button span .icon{
+
+.hero-section-left button span .icon {
   font-size: 17px;
 }
 
 
 .hero-section-right img {
+  margin-top: 30px;
   max-width: 100%;
   height: auto;
+  animation: float 3s ease-in-out infinite;
 }
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+    /* Adjust the floating height as needed */
+  }
+}
+
+
+/* division tutors styles start here */
+
+.item {
+  margin: 0px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1ce4b2;
+  min-height: 20px;
+  min-width: 12rem;
+  padding: 20px;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  transition: 0.5s;
+
+}
+
+.item:hover {
+  border-radius: 1rem 0rem 1rem 0rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.item div {
+  padding: 0px 20px;
+}
+
+.inner-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel {
+  padding: 40px 0px;
+  margin: 5% 10%;
+  margin-top: 40px;
+  cursor: grab;
+  overflow: hidden;
+}
+
+.carousel h1 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* division tutors style ends here */
 
 /* Responsive Styles */
 @media (min-width: 768px) {
   .hero-section {
+    padding: 70px;
     flex-direction: row;
     justify-content: space-between;
   }
@@ -209,20 +292,24 @@
     text-align: left;
     padding-left: 5%;
   }
-  .hero-section-left h1{
+
+  .hero-section-left h1 {
     color: green;
   }
-  .hero-section-left p{
+
+  .hero-section-left p {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     font-size: 20px;
     color: #afa2a2;
   }
-  .hero-section-left span{
+
+  .hero-section-left span {
     color: rgb(35, 128, 128);
   }
-  .hero-section-left button{
+
+  .hero-section-left button {
     padding: 13px 17px;
     font-size: 17px;
     border: hidden;
@@ -232,8 +319,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
-  .hero-section-left button span .icon{
+
+  .hero-section-left button span .icon {
     font-size: 17px;
     margin-top: 4px;
   }
@@ -245,7 +334,7 @@
   .hero-section-left h1 {
     font-size: 36px;
   }
- 
+
 
 }
 
@@ -253,19 +342,107 @@
 
 /* responsive designes starts here */
 @media screen and (max-width: 1024px) {
-    .header .nav-links ul {
-        display: none;
-        justify-content: space-around;
-        list-style-type: none;
-      }
-      .header .button-container button{
-        display: none;
-      }
-      .header .menu-toggle{
-        display: flex;
-        cursor: pointer;
-    }
-
-
+  .header .nav-links ul {
+    display: none;
+    justify-content: space-around;
+    list-style-type: none;
   }
+
+  .header .button-container button {
+    display: none;
+  }
+
+  .header .menu-toggle {
+    display: flex;
+    cursor: pointer;
+  }
+
+
+}
+
 /* responsive designes ends here */
+
+
+/* search tutor jobs styles start here */
+
+/* SearchTutorJobs.css */
+
+.search-tutor-jobs {
+  color: #fff;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.image-container {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.text-container {
+  text-align: center;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+  .search-tutor-jobs {
+    color: #fff;
+    background-color: #000;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .image-container {
+    flex: 1;
+    margin-left: 70px;
+    margin-bottom: 0;
+  }
+
+  .text-container {
+    flex: 1;
+    text-align: left;
+    padding-right: 70px;
+  }
+}
+
+/* search tutor jobs ends here */
+
+/* popular tutor slider */
+/* PopularTutors.css */
+
+/* PopularTutors.css */
+/* PopularTutors.css */
+.slider_container{
+  margin: 10% 15%;
+}
+.slider_card{
+  text-align: center;
+  padding: 10px;
+  border: 10px solid white;
+  height: 300px;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.slider_card img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+
+/* tutions styles */
+.filter-card{
+  padding: 70px;
+}
+
+
+
