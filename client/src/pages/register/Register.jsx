@@ -1,89 +1,36 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import district from "../../data/district";
 import division from "../../data/division";
 import upazila from "../../data/upazila";
-import Select from "react-select";
 import unions from "../../data/unions";
-const RegisterFormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 70px;
-`;
-
-const Header = styled.h1`
-  color: #3498db;
-  text-align: center;
-`;
-
-const RegisterForm = styled.form`
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  width: 100%;
-  max-width: 700px;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  background-color: #ffffff;
-  margin: 20px 10px;
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    margin: 20px 10px;
-  }
-`;
-
-const FormLabel = styled.label`
-  margin-bottom: 8px;
-  color: #333;
-`;
-
-const FormInput = styled.input`
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  margin-top: 5px;
-  &:focus {
-    border-color: #3498db;
-    outline: none;
-  }
-`;
-
-const FormSelect = styled(Select)`
-  width: 100%;
-  margin-bottom: 16px;
-  margin-top: 5px;
-  &:focus {
-    border-color: #fff;
-    outline: none;
-  }
-`;
-
-// ... (previous code)
-
-const SubmitButton = styled.button`
-  background-color: #3498db;
-  color: #ffffff;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #3498db;
-  }
-
-  @media (min-width: 768px) {
-    grid-column: span 2; // Span across two columns for larger screens
-  }
-`;
+import {
+  genderOptions,
+  registerTypeOptions,
+} from "../../data/registerFormData";
+import {
+  RegisterFormContainer,
+  RegisterForm,
+  FormLabel,
+  FormInput,
+  FormSelect,
+  SubmitButton,
+} from "./registerFormStyles";
 
 const Register = () => {
+  const [formData, setFormData] = useState({
+    registerType: "",
+    name: "",
+    gender: "",
+    email: "",
+    phone: "",
+    division: "",
+    district: "",
+    upazila: "",
+    union: "",
+    preferredArea: "",
+    password: "",
+    confirmPassword: "",
+  });
   const [selectedDivision, setSelectedDivision] = useState(null);
   const [selectedDistrict, setSelectedDistrict] = useState(null);
   const [selectedUpazila, setSelectedUpazila] = useState(null);
@@ -150,55 +97,86 @@ const Register = () => {
     );
   };
 
-  const registerTypeOptions = [
-    { value: "student", label: "Student" },
-    { value: "tutor", label: "Tutor" },
-  ];
+  const handleInputChange = (name, value) => {
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
 
-  const genderOptions = [
-    { value: "male", label: "Male" },
-    { value: "female", label: "Female" },
-    { value: "other", label: "Other" },
-  ];
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(formData);
+  };
 
   return (
     <RegisterFormContainer>
       {/* <Header>Register</Header> */}
-      <RegisterForm>
+      <RegisterForm onSubmit={handleSubmit}>
         <div>
           <FormLabel htmlFor="registerType">Register Type</FormLabel>
           <FormSelect
             id="registerType"
             name="registerType"
             options={registerTypeOptions}
+            value={formData.registerType}
+            onChange={(selectedOption) => handleInputChange("registerType", selectedOption.value)}
           />
 
           <FormLabel htmlFor="name">Name</FormLabel>
-          <FormInput type="text" id="name" name="name" />
+          <FormInput
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={(selectedOption) => handleInputChange("name", selectedOption.value)}
+            
+          />
 
           <FormLabel htmlFor="gender">Gender</FormLabel>
-          <FormSelect id="gender" name="gender" options={genderOptions} />
+          <FormSelect
+            id="gender"
+            name="gender"
+            options={genderOptions}
+            value={formData.gender}
+         
+          />
 
           <FormLabel htmlFor="email">Email</FormLabel>
-          <FormInput type="email" id="email" name="email" />
+          <FormInput
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            
+          />
 
           <FormLabel htmlFor="phone">Phone</FormLabel>
-          <FormInput type="tel" id="phone" name="phone" />
+          <FormInput
+            type="tel"
+            id="phone"
+            name="phone"
+            value={formData.phone}
+          
+          />
 
           <FormLabel htmlFor="password">Password</FormLabel>
-          <FormInput type="password" id="password" name="password" />
+          <FormInput
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+          />
         </div>
 
         <div>
           <FormLabel htmlFor="divison">Tuition Division</FormLabel>
           <FormSelect
             id="division"
-            name="divion"
+            name="division"
             options={division.map((item) => ({
               value: item.id,
               label: item.name,
             }))}
             onChange={handleDivisionChange}
+            value={formData.division}
           />
 
           <FormLabel htmlFor="district">Tuition District</FormLabel>
@@ -207,6 +185,7 @@ const Register = () => {
             name="district"
             options={districtOptions}
             onChange={handleDistrictChange}
+            value={formData.district}
           />
 
           <FormLabel htmlFor="upazila">Tuition Upazila</FormLabel>
@@ -215,16 +194,23 @@ const Register = () => {
             name="upazila"
             options={upazilaOptions}
             onChange={handleUpazilaChange}
+            value={formData.upazila}
           />
 
           <FormLabel htmlFor="union">Tuition Area</FormLabel>
-          <FormSelect id="union" name="union" options={unionOptions} />
+          <FormSelect
+            id="union"
+            name="union"
+            options={unionOptions}
+            value={formData.union}
+          />
 
           <FormLabel htmlFor="preferredArea">Preferred Tuition Area</FormLabel>
           <FormSelect
             id="preferredArea"
             name="preferredArea"
             options={preferredAreaOptions}
+            value={formData.preferredArea}
           />
 
           <FormLabel htmlFor="confirmPassword">Confirm Password</FormLabel>
@@ -232,6 +218,7 @@ const Register = () => {
             type="password"
             id="confirmPassword"
             name="confirmPassword"
+            value={formData.confirmPassword}
           />
         </div>
 
