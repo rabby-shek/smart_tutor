@@ -59,7 +59,7 @@ const FormSelect = styled(Select)`
   margin-bottom: 16px;
   margin-top: 5px;
   &:focus {
-    border-color: #3498db;
+    border-color: #fff;
     outline: none;
   }
 `;

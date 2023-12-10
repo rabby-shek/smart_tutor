@@ -69,7 +69,7 @@ const styles = {
     bottom: "20px",
     right: "20px",
     padding: "10px",
-    background: "#5dd7d4",
+    background: "#1ce4b2",
     color: "#fff",
     border: "none",
     borderRadius: "5px",
@@ -78,3 +78,4 @@ const styles = {
 };
 
 export default App;
+

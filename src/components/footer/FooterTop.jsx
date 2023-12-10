@@ -53,7 +53,7 @@ const SocialIcons = styled.div`
     cursor: pointer;
 
     &:hover {
-      color: #007bff; /* Change to your desired hover color */
+      color: #1ce4b2; /* Change to your desired hover color */
     }
   }
 `;
@@ -67,7 +67,7 @@ const Links = styled.div`
     transition: color 0.3s;
 
     &:hover {
-      color: #007bff; /* Change to your desired hover color */
+      color: #1ce4b2; /* Change to your desired hover color */
     }
   }
 `;
