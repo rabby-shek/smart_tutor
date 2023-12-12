@@ -246,7 +246,7 @@ const Register = () => {
 
           <FormLabel htmlFor="phone">Phone</FormLabel>
           <FormInput
-            type="tel"
+            type="text"
             id="phone"
             name="phone"
             value={formData.phone}
