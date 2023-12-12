@@ -116,13 +116,8 @@ const Register = () => {
   };
   const showNotification = (type, message) => {
     setNotification({ type, message });
-  
-    // Clear the notification after a certain duration
-    setTimeout(() => {
-      setNotification(null);
-    }, 3000); // Adjust the duration as needed
   };
-  
+
   const closeNotification = () => {
     setNotification(null);
   };
@@ -134,67 +129,77 @@ const Register = () => {
     if (!formData.registerType.trim()) {
       valid = false;
       showNotification("error", "Please Select a User Type");
-    }
-    else if(!formData.name.trim()){
+    } else if (!formData.name.trim()) {
       valid = false;
       showNotification("error", "Name is required");
-    }
-    else if(formData.name.length < 3){
+    } else if (formData.name.length < 3) {
       valid = false;
       showNotification("error", "Name at least 3 characters");
-
-    }
-    else if(!formData.gender.trim()){
+    } else if (!formData.gender.trim()) {
       valid = false;
       showNotification("error", "Please Select a gender type");
-
-    }
-    else if(!formData.email.trim()){
+    } else if (!formData.email.trim()) {
       valid = false;
       showNotification("error", "Email is required");
-
-    }
-    else if(!emailRegex.test(formData.email.trim())){
+    } else if (!emailRegex.test(formData.email.trim())) {
       valid = false;
       showNotification("error", "Email is not valid");
-
-    }
-    else if(!formData.phone.trim()){
+    } else if (!formData.phone.trim()) {
       valid = false;
-      showNotification("error", "Please Select a gender type");
-
-    }
-    else{
+      showNotification("error", "Phone number is required");
+    } else if (!formData.division.trim()) {
       valid = false;
-      showNotification("error", "Password must be at least 6 characters");
-
+      showNotification("error", "Please Select a division");
+    } else if (!formData.district.trim()) {
+      valid = false;
+      showNotification("error", "Please Select a district");
+    } else if (!formData.upazila.trim()) {
+      valid = false;
+      showNotification("error", "Please Select a upazila");
+    } else if (!formData.union.trim()) {
+      valid = false;
+      showNotification("error", "Please Select a tution area");
+    } else if (!formData.preferredArea.trim()) {
+      valid = false;
+      showNotification("error", "Please Select a preffered area");
+    } else if (!formData.password.trim()) {
+      valid = false;
+      showNotification("error", "Password is required");
+    } else if (formData.password.length < 6) {
+      valid = false;
+      showNotification("error", "Password is must be 6 character");
+    } else if (!formData.confirmPassword.trim()) {
+      valid = false;
+      showNotification("error", "Confirm Password is required");
+    } else if (formData.confirmPassword.trim() !== formData.password.trim()) {
+      valid = false;
+      showNotification("error", "Password dosen't match");
+    } else {
+      return valid;
     }
-   
-    return valid;
   };
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
+
     if (validateForm()) {
       console.log("Form is valid. Submitting:", formData);
-  
+
       // Add your actual submission logic here
-  
+
       // Simulate a successful submission for demonstration purposes
       showNotification("success", "Registration successful!");
-    } 
+    }
   };
-  
+
   return (
     <RegisterFormContainer>
-     {notification && (
-         <Notification
-         type={notification.type}
-         message={notification.message}
-         onClose={closeNotification}
-       />
+      {notification && (
+        <Notification
+          type={notification.type}
+          message={notification.message}
+          onClose={closeNotification}
+        />
       )}
       {/* <Header>Register</Header> */}
       <RegisterForm onSubmit={handleSubmit}>

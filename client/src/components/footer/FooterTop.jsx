@@ -97,7 +97,7 @@ const FooterTop = () => {
             <FaTwitter />
             <FaInstagram />
           </SocialIcons>
-          <p style={{marginTop:"10px"}}>
+          <p style={{ marginTop: "10px" }}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
             quam veritatis nam, enim ex suscipit nostrum? Optio unde ipsa ipsum.
           </p>
