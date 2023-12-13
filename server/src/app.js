@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+var cors = require('cors');
 const createError = require("http-errors");
 const { userRouter } = require("./routers/userRouter");
 
@@ -10,6 +11,7 @@ app.use(morgan("dev"));
 // for taking the data from the form
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 // routes
 

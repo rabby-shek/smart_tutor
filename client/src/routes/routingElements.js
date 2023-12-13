@@ -3,6 +3,8 @@ import Tutors from "../pages/tutors/Tutors";
 import TutorRequest from "..//pages/tutorRequest/TutorRequest";
 import Courses from "..//pages/courses/Courses";
 import NotFound from "../pages/404page/NotFound";
+import Profile from "../pages/profile/Profile";
+
 const routingElements = [
   {
     path: "/tutions",
@@ -19,6 +21,10 @@ const routingElements = [
   {
     path: "/courses",
     element: <Courses />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
   },
   {
     path: "*",
