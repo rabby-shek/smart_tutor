@@ -23,7 +23,8 @@ const FilterCard = () => {
      <h3 style={{
       display:"flex",
       alignItems:"center",
-      justifyContent:"center"
+      justifyContent:"center",
+      color:"#3498db"
      }}> Advance Filter <CiFilter /></h3>
       <div className={`offcanvas ${isMenuOpen ? "active" : ""}`}>
         <FaTimes
