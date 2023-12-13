@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Select from "react-select";
 export const TutorRequestFormContainer = styled.div`
-   display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -13,11 +13,11 @@ export const ParagaraphText = styled.p`
   font-size: 15px;
   margin-bottom: 10px;
   padding: 0px 10px;
-`
+`;
 export const Header = styled.h1`
-color: #3498db;
-text-align: center;
-margin-bottom: 10px;
+  color: #3498db;
+  text-align: center;
+  margin-bottom: 10px;
 `;
 export const TutorRequestForm = styled.form`
   display: grid;
