@@ -2,12 +2,13 @@ import React from "react";
 import FooterTop from "./FooterTop";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <footer style={styles.footer}>
       <FooterTop />
       <div style={styles.container}>
         <h1 style={styles.logo}>Smart Tutor</h1>
-        <p style={styles.text}>© 2023 MRP Tech</p>
+        <p style={styles.text}>© {currentYear} MRP Tech</p>
       </div>
     </footer>
   );
