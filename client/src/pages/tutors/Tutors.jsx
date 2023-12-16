@@ -1,10 +1,23 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
+
+const TutorListCardContainer = styled.div`
+  padding-top: 70px;
+`
+
+const TutorListContainerHeader = styled.h1`
+  color: #000;
+  text-align: center;
+`
 
 const Tutors = () => {
   return (
-    <div>
-      Tutors
-    </div>
+    <TutorListCardContainer>
+      <TutorListContainerHeader>
+      All Tutors
+      </TutorListContainerHeader>
+      
+    </TutorListCardContainer>
   )
 }
 

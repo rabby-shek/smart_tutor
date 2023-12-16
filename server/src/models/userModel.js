@@ -33,7 +33,6 @@ const userSchema = new Schema({
   phone: {
     type: String,
     trim: true,
-    // Add any additional validation for phone number if needed
   },
   division: {
     type: String,

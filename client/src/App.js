@@ -69,7 +69,7 @@ const styles = {
     bottom: "20px",
     right: "20px",
     padding: "10px",
-    background: "#1ce4b2",
+    background: "#3498db",
     color: "#fff",
     border: "none",
     borderRadius: "5px",

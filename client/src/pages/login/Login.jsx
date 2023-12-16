@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import {NavLink} from 'react-router-dom';
 const LoginContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -61,11 +61,13 @@ const ForgotPasswordText = styled.p`
   text-align: center;
   color: #3498db;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     text-decoration: underline;
   }
 `;
+
 
 const Login = () => {
   return (
@@ -85,7 +87,7 @@ const Login = () => {
         </FormSelect>
 
         <SubmitButton type="submit">Login</SubmitButton>
-        <ForgotPasswordText>Forgot Password?</ForgotPasswordText>
+        <ForgotPasswordText><NavLink to="/forgot-password">Forgot Password?</NavLink></ForgotPasswordText>
       </LoginForm>
     </LoginContainer>
   );
